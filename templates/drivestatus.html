@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+	<meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="{{url_for('static',filename='css/plugins.css')}}" rel='stylesheet' type='text/css' />
+	 <link href="{{url_for('static',filename='css/style.css')}}" rel='stylesheet' type='text/css' />
+	 <link href="{{url_for('static',filename='css/templete.css')}}" rel='stylesheet' type='text/css' />
+	 <link href="{{url_for('static',filename='css/skin/skin-1.css')}}" rel='stylesheet' type='text/css' />
+	 <link href="{{url_for('static',filename='plugins/revolution/revolution/css/layers.css')}}" rel='stylesheet' type='text/css' />
+	 <link href="{{url_for('static',filename='plugins/revolution/revolution/css/navigation.css')}}" rel='stylesheet' type='text/css' />
+<style>
+.footer{
+text-align:center;
+background:#000;
+padding:10px 0px;
+font-family: 'Play', sans-serif;
+text-align:center;
+}
+
+.footer .row{
+width:100%;
+margin:1% 0%;
+padding:0.6% 0%;
+color:gray;
+font-size:0.8em;
+}
+
+.footer .row a{
+text-decoration:none;
+color:gray;
+transition:0.5s;
+}
+
+.footer .row a:hover{
+color:#fff;
+}
+
+.footer .row ul{
+width:100%;
+}
+
+.footer .row ul li{
+display:inline-block;
+margin:0px 30px;
+}
+
+.footer .row a i{
+font-size:2em;
+margin:0% 1%;
+}
+
+@media (max-width:720px){
+.footer{
+text-align:left;
+padding:5%;
+}
+.footer .row ul li{
+display:block;
+margin:10px 0px;
+text-align:left;
+}
+.footer .row a i{
+margin:0% 3%;
+}
+}
+h2 {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.table-bordered {
+  border: 1px solid #ddd !important;
+}
+
+table caption {
+	padding: .5em 0;
+}
+
+@media screen and (max-width: 767px) {
+  table caption {
+    display: none;
+  }
+}
+
+.p {
+  text-align: center;
+  padding-top: 140px;
+  font-size: 14px;
+}
+table, th, td {
+  border: 1px solid #ccc;
+}
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: auto;
+}
+table th, table td {
+
+  padding: 6px 8px;
+  vertical-align: top;
+  white-space: nowrap;
+}
+table th {
+  font-weight: 900;
+  text-align: center;
+  white-space: nowrap;
+}
+.scrollable {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.scrollable.is-scrollable:after {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 50px;
+  height: 100%;
+  border-radius: 10px 0 0 10px / 50% 0 0 50%;
+  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.25);
+  content: '';
+}
+.scrollable > div {
+  overflow-x: auto;
+}
+.scrollable > div ::-webkit-scrollbar {
+  height: 12px;
+}
+.scrollable > div ::-webkit-scrollbar-track {
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.15) inset;
+}
+.scrollable > div ::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+}
+
+</style>
+</head>
+<body id="bg">
+
+ <script src="{{url_for('static',filename='js/toastr.min.js')}}"></script>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/toastr.min.css')}}">
+ {{ toastr.include_jquery() }}
+    {{ toastr.include_toastr_css() }}
+    {{ toastr.message() }}
+{{ toastr.include_toastr_js() }}
+<div class="page-wraper">
+<div id="loading-area"></div>
+	<!-- header -->
+    <header class="site-header mo-left header fullwidth">
+		<!-- main header -->
+        <div class="sticky-header main-bar-wraper navbar-expand-lg">
+            <div class="main-bar clearfix">
+                <div class="container clearfix">
+                    <!-- website logo -->
+					<div class="logo-header mostion">
+						<a href="#"><img src="static/images/abc.png" style="height:95px;" class="logo" alt=""></a>
+					</div>
+
+                    <!-- nav toggle button -->
+                    <!-- nav toggle button -->
+                    <button class="navbar-toggler collapsed navicon justify-content-end" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+						<span></span>
+						<span></span>
+						<span></span>
+					</button>
+                    <!-- extra nav -->
+                    <!-- Quik search -->
+                    <!-- main nav -->
+                     <div class="header-nav navbar-collapse collapse justify-content-start" id="navbarNavDropdown">
+                        <ul class="nav navbar-nav">
+							<li>
+								<a href="{{url_for('index')}}">Home</a>
+
+							</li>
+                            <li class="active">
+								<a href="{{url_for('drivestatus')}}">Drive Status</a>
+							</li>
+                              <li>
+								<a href="{{url_for('learners')}}">Filter Data</a>
+							</li>
+                            <li>
+								<a href="{{url_for('admin')}}">Admin</a>
+							</li>
+
+						</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- main header END -->
+    </header>
+    <!-- header END -->
+    <!-- Content -->
+    <div class="page-content bg-white">
+        <!-- inner page banner -->
+        <div class="dez-bnr-inr overlay-black-middle" style="background-image:url(static/images/resume.jpg);">
+            <div class="container">
+                <div class="dez-bnr-inr-entry">
+                    <h1 class="text-white">Send Drive Status Emails</h1>
+					<!-- Breadcrumb row -->
+					<div class="breadcrumb-row">
+						<ul class="list-inline">
+							<li><a href="#">Home</a></li>
+							<li>Drive Status Emails</li>
+						</ul>
+					</div>
+					<!-- Breadcrumb row END -->
+                </div>
+            </div>
+        </div>
+
+<div class="container-fluid mt-5">
+          <div class="row justify-content-center">
+            <div class="col-6">
+                  <form action="/bulkstatus" method="POST" enctype="multipart/form-data" style="float:center">
+                      <p>Download sample file from <a href="{{url_for('download_filedrive')}}"><u><b>here</b></u></a></p>
+                        <input type="file" name="upload_file" id="actual-btn"  hidden/>
+
+<h5 class="widget-title font-weight-700 text-uppercase">UPLOAD FILE:</h5>
+                      <label class="label site-button" for="actual-btn">Choose File</label>
+
+<!-- name of file chosen -->
+<span id="file-chosen" class="mx-5">No file chosen</span>
+                      <input type="submit" name="" class="site-button" value="Send Email">
+
+                  </form>
+<script>
+    const actualBtn = document.getElementById('actual-btn');
+
+const fileChosen = document.getElementById('file-chosen');
+
+actualBtn.addEventListener('change', function(){
+  fileChosen.textContent = this.files[0].name
+})
+</script>
+            </div>
+          </div>
+    {{data|safe}}
+
+</div>
+
+
+
+
+
+
+		</div>
+    </div>
+    <!-- Content END-->
+
+    <button class="scroltop fa fa-chevron-up"></button>
+</div>
+<!-- JAVASCRIPT FILES ========================================= -->
+ <script src="{{url_for('static',filename='js/jquery.min.js')}}"></script>
+
+ <script src="{{url_for('static',filename='plugins/wow/wow.js')}}"></script>
+
+ <script src="{{url_for('static',filename='plugins/bootstrap/js/popper.min.js')}}"></script>
+
+ <script src="{{url_for('static',filename='plugins/bootstrap/js/bootstrap.min.js')}}"></script>
+
+ <script src="{{url_for('static',filename='plugins/bootstrap-select/bootstrap-select.min.js')}}"></script>
+
+ <script src="{{url_for('static',filename='plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js')}}"></script>
+
+ <script src="{{url_for('static',filename='plugins/magnific-popup/magnific-popup.js')}}"></script>
+
+ <script src="{{url_for('static',filename='plugins/counter/waypoints-min.js')}}"></script>
+
+
+ <script src="{{url_for('static',filename='plugins/counter/counterup.min.js')}}"></script>
+
+ <script src="{{url_for('static',filename='plugins/imagesloaded/imagesloaded.js')}}"></script>
+
+ <script src="{{url_for('static',filename='plugins/masonry/masonry-3.1.4.js')}}"></script>
+
+ <script src="{{url_for('static',filename='plugins/masonry/masonry.filter.js')}}"></script>
+
+ <script src="{{url_for('static',filename='plugins/owl-carousel/owl.carousel.js')}}"></script>
+
+ <script src="{{url_for('static',filename='plugins/rangeslider/rangeslider.js')}}"></script>
+
+ <script src="{{url_for('static',filename='js/custom.js')}}"></script>
+
+ <script src="{{url_for('static',filename='js/dz.carousel.js')}}"></script>
+
+ <script src="{{url_for('static',filename='js/dz.ajax.js')}}"></script>
+
+ <script src="{{url_for('static',filename='plugins/paroller/skrollr.min.js')}}"></script>
+
+<footer>
+<div class="footer">
+   <div class="row ">
+       <a href="#"><img src="static/images/abc.png" style="height:130px;" class="logo" alt=""></a>
+   </div>
+
+<div class="row justify-content-center">
+upGrad Copyright © 2021 upGrad - All rights reserved || Designed By: Nainu Wadhwa
+</div>
+</div>
+</footer>
+</body>
+
+
+</html>

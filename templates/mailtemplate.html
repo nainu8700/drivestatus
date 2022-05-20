@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    table {
+  border-collapse: collapse;
+}
+        table, th, td {
+  border: .5px solid black;
+  padding:10px;
+}
+    </style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Dear {{name}},</p>
+<p>Here is the current status for the jobs that you have applied for:</p>
+ <table>
+          <thead>
+            <tr>
+              <th class="CompanyName">Company Name</th>
+              <th  class="Profile">Profile</th>
+              <th  class="DriveStatus">Drive Status</th>
+              <th  class="LearnerStatus">Application Status</th>
+
+            </tr>
+          </thead>
+          <tbody>
+          {% for row in data %}
+          <tr>
+                            <td class="CompanyName">{{row.1}}</td>
+                            <td class="Profile">{{row.2}}</td>
+                            <td class="DriveStatus">{{row.3}}</td>
+                            <td class="LearnerStatus">{{row.4}}</td>
+          </tr>
+            {% endfor  %}
+          </tbody>
+
+          <tfoot>
+
+          </tfoot>
+        </table>
+
+<p>We will keep you posted on all the drives in a periodic manner. </p>
+<p>Good Luck!!<br>
+upGrad </p>
+</body>
+</html>

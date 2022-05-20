@@ -1,0 +1,125 @@
+<table class="ui blue table">
+  <thead>
+
+     <tr>
+              <th data-priority="4" class="edit">Edit</th>
+              <th data-priority="1" class="Name">Full Name</th>
+              <th data-priority="2" class="email_id">Email Id</th>
+              <th data-priority="3" class="Phonenumber">Mobile Number</th>
+              <th data-priority="4" class="Gender">Gender</th>
+              <th data-priority="4" class="Current_Organisation">Current Organisation</th>
+              <th data-priority="4" class="	Current_Designation">Current Designation</th>
+              <th data-priority="4" class="location">location</th>
+             <th data-priority="4" class="internship">internship</th>
+             <th data-priority="4" class="Current_CTC">Current CTC</th>
+             <th data-priority="4" class="work_exp">Work Experience</th>
+              <th data-priority="4" class="notice_period">notice_period</th>
+              <th data-priority="4" class="skills">skills</th>
+              <th data-priority="4" class="Degree">Degree</th>
+              <th data-priority="4" class="passout_year">Passout year</th>
+              <th data-priority="4" class="resume">Resume</th>
+              <th data-priority="4" class="programname">Program name</th>
+              <th data-priority="4" class="cohortid">Cohort Id</th>
+              <th data-priority="4" class="looking_for_job">Open for opportunities?</th>
+              <th data-priority="4" class="domain">Domain</th>
+            </tr>
+  </thead>
+    <tbody id="table-data">
+
+             {% for row in student %}
+             <tr>
+                      <td> <a href="/updatedata" style="float:right;"  id="{{row.0}}" class="site-button mr-5" >EDIT</a></td>
+                            <td class="Name">{{row.1}}</td>
+                            <td class="email_id">{{row.2}}</td>
+                            <td class="Phonenumber">{{row.3}}</td>
+                            <td class="Gender">{{row.4}}</td>
+                            <td class="Current_Organisation">{{row.5}}</td>
+                            <td class="Current_Designation">{{row.6}}</td>
+                            <td class="location">{{row.7}}</td>
+                            <td class="internship">{{row.8}}</td>
+                            <td class="Current_CTC">{{row.9}}</td>
+                            <td class="work_exp">{{row.10}}</td>
+                            <td class="notice_period">{{row.11}}</td>
+                             <td class="skills">{{row.12}}</td>
+                             <td class="Degree">{{row.13}}</td>
+                             <td class="passout_year">{{row.14}}</td>
+                             <td class="resume">{{row.15}}</td>
+                            <td class="programname">{{row.16}}</td>
+                            <td class="cohortid">{{row.17}}</td>
+                            <td class="looking_for_job">{{row.18}}</td>
+                            <td class="domain">{{row.19}}</td>
+    </tr>
+
+              {% endfor %}
+          </tbody>
+    {% for row in student %}
+
+    <div class="modal fade" id="ModalLoginForm{{row.0}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel{{row.0}}" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+     <form method="post" action="/updatelearner">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel{{row.0}}">Edit Learner data</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/test">
+                <div class="modal-body">
+                    <section class="create-user-form container">
+                             <div class="form-group">
+                                <input class="form-control col-7 mdb-autocomplete" type="text" name="learner_id" value="{{row.0}}" id="learner_id" autocomplete="off" />
+                            </div>
+                            <div class="form-group">
+                                <label for="Current_Organisations">Current Organisation</label>
+                                <input class="form-control col-7 mdb-autocomplete" type="text" name="Current_Organisation" value="{{row.5}}" id="Current_Organisations" autocomplete="off" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Current_Designations">Current_Designation</label>
+                                <input class="form-control col-7 mdb-autocomplete" type="text" name="Current_Designation" value="{{row.6}}" id="Current_Designations" autocomplete="off" />
+                            </div>
+                             <div class="form-group">
+                                <label for="locations">Location</label>
+                                <input class="form-control col-7 mdb-autocomplete" type="text" name="location" value="{{row.7}}" id="locations" autocomplete="off" />
+                            </div>
+                            <div class="form-group">
+                                <label for="Current_CTCs">	Current CTC</label>
+                                <input class="form-control col-7 mdb-autocomplete" type="text" name="Current_CTC" value="{{row.9}}" id="Current_CTCs" autocomplete="off" />
+                            </div>
+                            <div class="form-group">
+                                <label for="work_exps">Work Experience</label>
+                                <input class="form-control col-7 mdb-autocomplete" type="text" name="work_exp" value="{{row.10}}" id="work_exps" autocomplete="off" />
+                            </div>
+                             <div class="form-group">
+                                <label for="notice_periods">Notice Period</label>
+                                <input class="form-control col-7 mdb-autocomplete" type="text" name="notice_period" value="{{row.11}}" id="notice_periods" autocomplete="off" />
+                            </div>
+                             <div class="form-group">
+                                <label for="skill">Skills</label>
+                                <input class="form-control col-7 mdb-autocomplete" type="text" name="skills" value="{{row.12}}" id="skill" autocomplete="off" />
+                            </div>
+                             <div class="form-group">
+                                <label for="resumes">resume</label>
+                                <input class="form-control col-7 mdb-autocomplete" type="text" name="resume" value="{{row.15}}" id="resumes" autocomplete="off" />
+                            </div>
+                            <div class="form-group">
+                                <label for="looking_for_jobs">Open for opportunities?</label>
+                                <input class="form-control col-7 mdb-autocomplete" type="text" name="looking_for_job" value="{{row.18}}" id="looking_for_jobs" autocomplete="off" />
+                            </div>
+
+                    </section>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button   class="site-button my-5"  type="submit"  data-toggle="modal">Update</button>
+                </div>
+                </form>
+        </div>
+         </form>
+    </div>
+</div>
+
+    {% endfor %}
+</table>

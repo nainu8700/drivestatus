@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+	<meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="{{url_for('static',filename='css/plugins.css')}}" rel='stylesheet' type='text/css' />
+	 <link href="{{url_for('static',filename='css/style.css')}}" rel='stylesheet' type='text/css' />
+	 <link href="{{url_for('static',filename='css/templete.css')}}" rel='stylesheet' type='text/css' />
+	 <link href="{{url_for('static',filename='css/skin/skin-1.css')}}" rel='stylesheet' type='text/css' />
+	 <link href="{{url_for('static',filename='plugins/revolution/revolution/css/layers.css')}}" rel='stylesheet' type='text/css' />
+	 <link href="{{url_for('static',filename='plugins/revolution/revolution/css/navigation.css')}}" rel='stylesheet' type='text/css' />
+<style>
+.footer{
+text-align:center;
+background:#000;
+padding:10px 0px;
+font-family: 'Play', sans-serif;
+text-align:center;
+}
+
+.footer .row{
+width:100%;
+margin:1% 0%;
+padding:0.6% 0%;
+color:gray;
+font-size:0.8em;
+}
+
+.footer .row a{
+text-decoration:none;
+color:gray;
+transition:0.5s;
+}
+
+.footer .row a:hover{
+color:#fff;
+}
+
+.footer .row ul{
+width:100%;
+}
+
+.footer .row ul li{
+display:inline-block;
+margin:0px 30px;
+}
+
+.footer .row a i{
+font-size:2em;
+margin:0% 1%;
+}
+
+@media (max-width:720px){
+.footer{
+text-align:left;
+padding:5%;
+}
+.footer .row ul li{
+display:block;
+margin:10px 0px;
+text-align:left;
+}
+.footer .row a i{
+margin:0% 3%;
+}
+}
+h2 {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.table-bordered {
+  border: 1px solid #ddd !important;
+}
+
+table caption {
+	padding: .5em 0;
+}
+
+@media screen and (max-width: 767px) {
+  table caption {
+    display: none;
+  }
+}
+
+.p {
+  text-align: center;
+  padding-top: 140px;
+  font-size: 14px;
+}
+table, th, td {
+  border: 1px solid #ccc;
+}
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: auto;
+}
+table th, table td {
+
+  padding: 6px 8px;
+  vertical-align: top;
+  white-space: nowrap;
+}
+table th {
+  font-weight: 900;
+  text-align: center;
+  white-space: nowrap;
+}
+.scrollable {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.scrollable.is-scrollable:after {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 50px;
+  height: 100%;
+  border-radius: 10px 0 0 10px / 50% 0 0 50%;
+  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.25);
+  content: '';
+}
+.scrollable > div {
+  overflow-x: auto;
+}
+.scrollable > div ::-webkit-scrollbar {
+  height: 12px;
+}
+.scrollable > div ::-webkit-scrollbar-track {
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.15) inset;
+}
+.scrollable > div ::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+}
+
+</style>
+</head>
+<body id="bg">
+ <script src="{{url_for('static',filename='js/toastr.min.js')}}"></script>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/toastr.min.css')}}">
+<div class="page-wraper">
+<div id="loading-area"></div>
+	<!-- header -->
+    <header class="site-header mo-left header fullwidth">
+		<!-- main header -->
+        <div class="sticky-header main-bar-wraper navbar-expand-lg">
+            <div class="main-bar clearfix">
+                <div class="container clearfix">
+                    <!-- website logo -->
+					<div class="logo-header mostion">
+						<a href="#"><img src="static/images/abc.png" style="height:95px;" class="logo" alt=""></a>
+					</div>
+
+                    <!-- nav toggle button -->
+                    <!-- nav toggle button -->
+                    <button class="navbar-toggler collapsed navicon justify-content-end" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+						<span></span>
+						<span></span>
+						<span></span>
+					</button>
+                      <div class="extra-nav">
+                        <div class="extra-cell">
+							<a href="#" class="site-button">USER MANUAL</a>
+                        </div>
+                    </div>
+                    <!-- extra nav -->
+                    <!-- Quik search -->
+                    <!-- main nav -->
+                     <div class="header-nav navbar-collapse collapse justify-content-start" id="navbarNavDropdown">
+                        <ul class="nav navbar-nav">
+							<li class="active">
+								<a href="{{url_for('index')}}">Home</a>
+
+							</li>
+                            <li>
+								<a href="{{url_for('drivestatus')}}">Drive Status</a>
+							</li>
+                              <li>
+								<a href="{{url_for('learners')}}">Filter Data</a>
+							</li>
+                            <li>
+								<a href="{{url_for('admin')}}">Admin</a>
+							</li>
+
+
+						</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- main header END -->
+    </header>
+    <!-- header END -->
+    <!-- Content -->
+    <div class="page-content bg-white">
+        <!-- inner page banner -->
+        <div class="dez-bnr-inr overlay-black-middle" style="background-image:url(static/images/job.jpg);">
+            <div class="container">
+                <div class="dez-bnr-inr-entry">
+                    <h1 class="text-white">TRANSITION AND DEBAR FILTERS </h1>
+					<!-- Breadcrumb row -->
+					<div class="breadcrumb-row">
+						<ul class="list-inline">
+							<li><a href="#">Home</a></li>
+							<li>MANUAL</li>
+						</ul>
+					</div>
+					<!-- Breadcrumb row END -->
+                </div>
+            </div>
+        </div>
+        <!-- inner page banner END -->
+        <!-- contact area -->
+        <div class="content-block">
+			<!-- Browse Jobs -->
+			<div class="section-full bg-white browse-job content-inner-2">
+				<div class="container">
+					<div class="row">
+						<div class="col-xl-9 col-lg-8">
+							<h5 class="widget-title font-weight-700 text-uppercase">BULK UPLOAD</h5>
+							<p>Download sample file from <a href="{{url_for('download_file')}}"><u><b>here</b></u></a></p>
+{{ toastr.include_jquery() }}
+    {{ toastr.include_toastr_css() }}
+    {{ toastr.message() }}
+{{ toastr.include_toastr_js() }}
+
+                            <p>Download complete <a href="/entiredatatransition?download=1" name="download" style="color:blue;"><b><u>transition</u></b></a> and <a href="/entiredatadebar?download=1" style="color:blue;"><u><b>debar</b></u></a> database</p>
+
+
+                  <form action="/upload" method="POST" enctype="multipart/form-data" style="float:center">
+                      <div class="form-group mb-5">
+                        <input type="file" name="upload_file" id="actual-btn"  hidden/>
+					  </div>
+                      <label class="label text-info"for="actual-btn">CLICK HERE TO UPLOAD</label>
+						<span id="file-chosen" class="ml-5">No file chosen</span>
+					  	<input type="submit" name="" class="ml-5 site-button" name="submit" value="submit">
+                  </form>
+
+<script>
+    const actualBtn = document.getElementById('actual-btn');
+const fileChosen = document.getElementById('file-chosen');
+actualBtn.addEventListener('change', function(){
+  fileChosen.textContent = this.files[0].name
+})
+</script>
+						</div>
+
+
+					</div>
+					<div class="row  my-5">
+						<div class="col-xl-9 col-lg-8">
+							<h5 class="widget-title font-weight-700 text-uppercase">VIEW DETAILS</h5>
+							<button class="btn  mr-4" onclick="myFunctions()" style="background:#edac4e;color:white;">Transitions and Debar Learners</button>
+                            <a href="/?download=1"><button class="site-button">Download</button></a>
+                        </div>
+
+					</div>
+
+					<div class="container scrollable"  id="myDIVS" style="display:none;">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="table-responsive" data-pattern="priority-columns">
+          <h5>Transitions:</h5>
+                                                             <p>{% if matched_records_count_debar %} {{matched_records_count_debar}}{% else%}0{% endif %} Results Matched</p>
+
+        <table summary="This table shows how to create responsive tables using RWD-Table-Patterns' functionality" class="table table-bordered table-hover">
+          <thead>
+          <tr>
+              <th  style="text-align:center" colspan="3"></th>
+              <th style="text-align:center"  colspan="6">Old Data</th>
+              <th style="text-align:center" colspan="4">New Data</th>
+          </tr>
+            <tr>
+              <th data-priority="1" class="Name">Full Name</th>
+              <th data-priority="2" class="Emailid">Email Id</th>
+              <th data-priority="3" class="Phonenumber">Mobile Number</th>
+              <th data-priority="4" class="oldcompany">Company Name</th>
+              <th data-priority="4" class="oldprofile">Profile</th>
+              <th data-priority="4" class="CTC">CTC</th>
+              <th data-priority="4" class="Stipend">Stipend</th>
+                 <th data-priority="4" class="status">Status</th>
+                 <th data-priority="4" class="offered_date">Offer Date</th>
+                <th data-priority="4" class="newCompanyName">Company Name</th>
+              <th data-priority="4" class="newProfile">Profile</th>
+              <th data-priority="4" class="newCTC">CTC</th>
+              <th data-priority="4" class="newStipend">Stipend</th>
+            </tr>
+          </thead>
+          <tbody>
+             {% for row in new_datas %}
+                            <td class="Name">{{row.0}}</td>
+                            <td class="Emailid">{{row.1}}</td>
+                            <td class="Phonenumber">{{row.2}}</td>
+                            <td class="oldcompany">{{row.3}}</td>
+                            <td class="oldprofile">{{row.4}}</td>
+                            <td class="oldctc">{{row.5}}</td>
+                            <td class="oldstipend">{{row.6}}</td>
+                            <td class="status">{{row.7}}</td>
+                             <td class="offered_date">{{row.8}}</td>
+                            <td class="CompanyName">{{row.9}}</td>
+                            <td class="Profile">{{row.10}}</td>
+                            <td class="CTC">{{row.11}}</td>
+                            <td class="Stipend">{{row.12}}</td>
+
+          </tbody>
+              {% endfor %}
+          <tfoot>
+
+          </tfoot>
+        </table>
+      </div><!--end of .table-responsive-->
+    </div>
+  </div>
+</div>
+                    <div class="container scrollable  mt-5"  id="myDIV" style="display:none;">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="table-responsive" data-pattern="priority-columns">
+             <h5>Debarred Learners :</h5>
+                                                             <p>{% if matched_records_count%} {{matched_records_count}}{% else%}0{% endif %} Results Matched</p>
+
+        <table summary="This table shows how to create responsive tables using RWD-Table-Patterns' functionality" class="table table-bordered table-hover">
+          <thead>
+             <tr>
+              <th  style="text-align:center" colspan="3"></th>
+              <th style="text-align:center"  colspan="4">Debar Details</th>
+          </tr>
+            <tr>
+
+              <th data-priority="1" class="Name">Full Name</th>
+              <th data-priority="2" class="Emailid">Email Id</th>
+              <th data-priority="3" class="Phonenumber">Mobile Number</th>
+              <th data-priority="4" class="cohort">Cohort</th>
+              <th data-priority="5" class="debar_startdate">Debar Start Date</th>
+              <th data-priority="6" class="debar_enddate">Debar End Date</th>
+              <th data-priority="7" class="reason" >Reason</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for row in new_datas_debar %}
+                            <td class="Name">{{row.0}}</td>
+                            <td class="Emailid">{{row.1}}</td>
+                            <td class="Phonenumber">{{row.2}}</td>
+                            <td class="cohort">{{row.3}}</td>
+                            <td class="debar_startdate">{{row.4}}</td>
+                            <td class="debar_enddate">{{row.5}}</td>
+                            <td class="reason">{{row.6}}</td>
+
+          {% endfor %}
+
+
+          </tbody>
+          <tfoot>
+
+          </tfoot>
+        </table>
+      </div><!--end of .table-responsive-->
+    </div>
+  </div>
+</div>
+				</div>
+			</div>
+            <!-- Browse Jobs END -->
+		</div>
+    </div>
+    <!-- Content END-->
+
+
+    <button class="scroltop fa fa-chevron-up"></button>
+</div>
+<script src="{{url_for('static',filename='js/jquery.min.js')}}"></script>
+
+ <script src="{{url_for('static',filename='plugins/wow/wow.js')}}"></script>
+
+ <script src="{{url_for('static',filename='plugins/bootstrap/js/popper.min.js')}}"></script>
+
+ <script src="{{url_for('static',filename='plugins/bootstrap/js/bootstrap.min.js')}}"></script>
+
+ <script src="{{url_for('static',filename='plugins/bootstrap-select/bootstrap-select.min.js')}}"></script>
+
+ <script src="{{url_for('static',filename='plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js')}}"></script>
+
+ <script src="{{url_for('static',filename='plugins/magnific-popup/magnific-popup.js')}}"></script>
+
+ <script src="{{url_for('static',filename='plugins/counter/waypoints-min.js')}}"></script>
+
+
+
+ <script src="{{url_for('static',filename='plugins/imagesloaded/imagesloaded.js')}}"></script>
+
+ <script src="{{url_for('static',filename='plugins/masonry/masonry-3.1.4.js')}}"></script>
+
+ <script src="{{url_for('static',filename='plugins/masonry/masonry.filter.js')}}"></script>
+
+ <script src="{{url_for('static',filename='plugins/owl-carousel/owl.carousel.js')}}"></script>
+
+ <script src="{{url_for('static',filename='plugins/rangeslider/rangeslider.js')}}"></script>
+
+ <script src="{{url_for('static',filename='js/custom.js')}}"></script>
+
+ <script src="{{url_for('static',filename='js/dz.carousel.js')}}"></script>
+
+ <script src="{{url_for('static',filename='js/dz.ajax.js')}}"></script>
+
+ <script src="{{url_for('static',filename='plugins/paroller/skrollr.min.js')}}"></script>
+<script type="text/javascript">
+function myFunctions() {
+  var x = document.getElementById("myDIVS");
+  var y = document.getElementById("myDIV");
+  if (x.style.display === "none" && y.style.display === "none") {
+    x.style.display = "block";
+    y.style.display = "block";
+  } else {
+    x.style.display = "none";
+    y.style.display = "none";
+  }
+}
+</script>
+<!--FONT AWESOME-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!--GOOGLE FONTS-->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
+
+<footer>
+<div class="footer">
+   <div class="row ">
+       <a href="#"><img src="static/images/abc.png" style="height:130px;" class="logo" alt=""></a>
+   </div>
+
+<div class="row justify-content-center">
+upGrad Copyright © 2021 upGrad - All rights reserved || Designed By: Nainu Wadhwa
+</div>
+</div>
+</footer>
+</body>
+</html>
